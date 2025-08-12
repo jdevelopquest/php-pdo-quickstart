@@ -30,10 +30,10 @@ $contacts = $pdo->query( "SELECT * FROM contacts ORDER BY id DESC")->fetchAll(PD
 		// Print contacts 
 		foreach($contacts as $contact) { 		
 			echo "<tr>";
-			echo "<td>".$contact->name."</td>";
-			echo "<td>".$contact->age."</td>";
-			echo "<td>".$contact->email."</td>";	
-			echo "<td><a href=\"edit.php?id=$contact->id\">Edit</a> | <a href=\"delete.php?id=$contact->id\" onClick=\"return confirm('Are you sure you want to delete this contact?')\">Delete</a></td>";		
+			echo "<td>".htmlspecialchars($contact->name)."</td>";
+			echo "<td>".htmlspecialchars($contact->age)."</td>";
+			echo "<td>".htmlspecialchars($contact->email)."</td>";
+			echo "<td><a href=\"edit.php?id=".htmlspecialchars($contact->id)."\">Edit</a> | <a href=\"delete.php?id=.htmlspecialchars($contact->id).\" onClick=\"return confirm('Are you sure you want to delete this contact?')\">Delete</a></td>";
 		}
 		?>
 	</table>

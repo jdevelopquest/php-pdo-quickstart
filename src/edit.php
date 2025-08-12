@@ -67,28 +67,28 @@ else {
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-	<form name="form1" method="post" action="edit.php?id=<?php echo $id ?>">
+	<form name="form1" method="post" action="edit.php?id=<?= htmlspecialchars(isset($id) ? $id : "")?>">
 		<table>
 			<tr> 
 				<td>Name</td>
-				<td>
-					<input type="text" name="name" value="<?php echo $name;?>">
-					<span class="error"><?php echo $nameErr;?></span>
-				</td>
+                <td>
+                    <input type="text" name="name" value="<?= htmlspecialchars(isset($name) ? $name : "")?>">
+                    <span class="error"><?= htmlspecialchars(isset($nameErr) ? $nameErr : "")?></span>
+                </td>
 			</tr>
-			<tr> 
-				<td>Age</td>
-				<td>
-					<input type="text" name="age" value="<?php echo $age;?>">
-					<span class="error"><?php echo $ageErr;?></span>
-				</td>
+			<tr>
+                <td>Age</td>
+                <td>
+                    <input type="text" name="age" value="<?= htmlspecialchars(isset($age) ? $age : "")?>">
+                    <span class="error"><?= htmlspecialchars(isset($ageErr) ? $ageErr : "")?></span>
+                </td>
 			</tr>
-			<tr> 
-				<td>Email</td>
-				<td>
-					<input type="text" name="email" value="<?php echo $email;?>">
-					<span class="error"><?php echo $emailErr;?></span>
-				</td>
+			<tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" name="email" value="<?= htmlspecialchars(isset($email) ? $email : "")?>">
+                    <span class="error"><?= htmlspecialchars(isset($emailErr) ? $emailErr : "")?></span>
+                </td>
 			</tr>
 			<tr>
 				<td>
@@ -96,7 +96,7 @@ else {
 				</td>
 				<td>
 					<input type="submit" name="update" value="Update">
-					<input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
+					<input type="hidden" name="id" value=<?= htmlspecialchars(isset($id) ? $id : "")?>>
 				</td>
 			</tr>
 		</table>
